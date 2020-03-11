@@ -24,7 +24,7 @@ services:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:api.ninthyard.co.uk"
       - "traefik.protocol=h2c"
-      - "traefik.port=89"
+      - "traefik.port=91"
 
   ninthyard-nginx:
     image: elliotjreed/ninthyard-nginx
@@ -42,7 +42,7 @@ services:
       - "traefik.www.frontend.rule=Host:www.ninthyard.co.uk"
       - "traefik.nonwww.frontend.rule=Host:ninthyard.co.uk"
       - "traefik.protocol=h2c"
-      - "traefik.port=88"
+      - "traefik.port=90"
 
 networks:
   web:
