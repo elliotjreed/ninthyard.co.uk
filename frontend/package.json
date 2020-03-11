@@ -1,0 +1,44 @@
+{
+  "name": "ninth-yard",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:elliotjreed/ninthyard.git",
+  "author": "Elliot J. Reed <website@ninthyard.co.uk>",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development webpack-dev-server",
+    "build": "NODE_ENV=production webpack -p --progress",
+    "lint:js": "eslint 'src/**/*.js'",
+    "lint:css": "stylelint 'src/**/*.scss' --scss"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7",
+    "bootstrap": "^4.4",
+    "copy-webpack-plugin": "^5.1",
+    "css-loader": "^3.4",
+    "file-loader": "^5.1.0",
+    "html-webpack-plugin": "^3.2",
+    "mini-css-extract-plugin": "^0.9",
+    "node-sass": "^4.13",
+    "postcss-loader": "^3.0",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0",
+    "style-loader": "^1.1",
+    "ts-loader": "^6.2",
+    "typescript": "^3.7",
+    "webpack": "^4.41",
+    "webpack-cli": "^3.3",
+    "webpack-dev-server": "^3.10",
+    "webpack-pwa-manifest": "^4.2",
+    "whatwg-fetch": "^3.0",
+    "workbox-webpack-plugin": "^5.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ]
+}
