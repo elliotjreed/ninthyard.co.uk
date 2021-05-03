@@ -1,89 +1,77 @@
-const path = require('path')
-const CopyPlugin = require('copy-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin')
-const WebpackPwaManifest = require('webpack-pwa-manifest')
+const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  entry: './index.ts',
+  context: path.resolve(__dirname, "src"),
+  entry: "./index.ts",
   module: {
     rules: [
       {
         test: /\.ts?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: 'style-loader'
-          },
-          {
             loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "postcss-loader",
             options: {
-              hmr: process.env.NODE_ENV === 'development'
-            }
+              sourceMap: true,
+              postcssOptions: {
+                plugins: ["postcss-preset-env"],
+              },
+            },
           },
           {
-            loader: 'css-loader'
+            loader: "sass-loader",
+            options: { sourceMap: true },
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [
-                  require('autoprefixer')
-                ]
-              }
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: { sourceMap: true }
-          }
-        ]
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf|jpg|png)$/,
-        use: [
-          'file-loader'
-        ]
-      }
-    ]
+        use: ["file-loader"],
+      },
+    ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist')
+    contentBase: path.join(__dirname, "dist"),
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-      ignoreOrder: false
+      filename: "[name].css",
+      chunkFilename: "[id].css",
     }),
     new HtmlWebpackPlugin({
       hash: true,
-      template: './index.html',
-      filename: './index.html',
+      template: "./index.html",
+      filename: "./index.html",
       minify: {
         removeComments: true,
         removeScriptTypeAttributes: true,
-        collapseWhitespace: true
-      }
+        collapseWhitespace: true,
+      },
     }),
-    new CopyPlugin([
-      { from: "./static", to: "./" }
-    ]),
+    new CopyPlugin({ patterns: [{ from: "./static", to: "./" }] }),
     new WebpackPwaManifest({
       background_color: "#e42312",
       crossorigin: "anonymous",
@@ -91,20 +79,18 @@ module.exports = {
       icons: [
         {
           sizes: [96, 128, 150, 180, 192, 256, 384, 512],
-          src: path.resolve("src/images/wide.png")
-        }
+          src: path.resolve("src/images/wide.png"),
+        },
       ],
       inject: true,
       ios: true,
       name: "Ninth Yard",
       short_name: "NY",
-      theme_color: "#e42312"
+      theme_color: "#e42312",
     }),
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
-      skipWaiting: true
-    })
-  ]
-}
-
-
+      skipWaiting: true,
+    }),
+  ],
+};
