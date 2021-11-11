@@ -54,7 +54,9 @@ module.exports = {
     publicPath: "/",
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    historyApiFallback: true,
+    hot: true,
+    open: true
   },
   plugins: [
     new MiniCssExtractPlugin({
