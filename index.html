@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="E-commerce, AI, and software consultancy services in Nottingham and across the East Midlands." />
+    <title>Ninth Yard | E-commerce and AI Consultancy for Small Businesses | Nottingham</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-green: #4ab891;
+        --primary-purple: #6942b0;
+        --light-green: #7dcfb4;
+        --light-purple: #9271cc;
+        --dark: #231a36;
+        --light: #f0f7f5;
+        --modal-bg: rgba(0, 0, 0, 0.7);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Raleway", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary-green), var(--primary-purple));
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin-top: 1rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-weight: 500;
+        transition: opacity 0.3s;
+      }
+
+      nav a:hover {
+        opacity: 0.8;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 4rem 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary-purple);
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: var(--primary-green);
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .cta-button:hover {
+        background-color: var(--primary-purple);
+      }
+
+      .services {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        padding: 3rem 2rem;
+        background-color: rgba(42, 157, 143, 0.05);
+      }
+
+      .service-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        width: 340px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-card h3 {
+        color: var(--primary-purple);
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-green);
+      }
+
+      .about {
+        padding: 4rem 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .about h2 {
+        color: var(--primary-purple);
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .contact {
+        background: linear-gradient(135deg, var(--primary-purple), var(--primary-green));
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .contact h2 {
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .contact-info {
+        margin-bottom: 2rem;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: var(--light);
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: var(--light);
+      }
+
+      .footer-links {
+        margin: 1rem 0;
+      }
+
+      .footer-links a {
+        color: var(--light-green);
+        margin: 0 0.5rem;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--modal-bg);
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 2rem;
+        width: 80%;
+        max-width: 800px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        position: relative;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #888;
+        transition: color 0.3s;
+      }
+
+      .modal-close:hover {
+        color: var(--primary-purple);
+      }
+
+      .modal h2 {
+        color: var(--primary-purple);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .modal-body {
+        line-height: 1.7;
+      }
+
+      .modal-body p {
+        margin-bottom: 1rem;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      @media (max-width: 768px) {
+        .services {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        nav {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .modal-content {
+          width: 95%;
+          margin: 10% auto;
+          padding: 1.5rem;
+        }
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Ninth Yard</div>
+      <div class="tagline">Taking your business further</div>
+      <nav>
+        <a href="#services">What We Do</a>
+        <a href="#about">Who We Are</a>
+        <a href="#contact">Get in Touch</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Technology Solutions Made Simple for Small Businesses</h1>
+      <p>Looking to take your business online but don't know where to start? Ninth Yard provides jargon-free tech advice and solutions for small businesses and sole traders across Nottingham and the East Midlands. Whether you're a crafty creator ready to sell worldwide or a local shop wanting to reach more customers, we'll help you make technology work for you, not against you.</p>
+      <a href="#contact" class="cta-button">Book a Free Chat</a>
+    </section>
+
+    <section id="services" class="services">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <h3>Get Your Business Online</h3>
+        <p>From simple websites to full online shops, we'll help you sell your products or services online without the headaches. No technical knowledge needed – we'll handle everything from setting up payments to managing your inventory, all explained in plain English.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>AI That Actually Helps</h3>
+        <p>AI doesn't have to be scary or complicated. We'll show you practical ways it can save you time and money – like customer service chatbots that work while you sleep, tools that help you understand what your customers want, or systems that spot sales trends you might miss.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Tech That Makes Sense</h3>
+        <p>Need help choosing the right tools for your business? We'll translate the tech waffle and guide you through your options. From email marketing that doesn't end up in spam, to social media that actually brings in customers – we explain everything in normal, human language.</p>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>Why Work With Ninth Yard?</h2>
+      <p>We're a Nottingham-based team that believes small businesses deserve the same tech advantages as the big guys, without needing a massive budget or an IT department. We explain everything clearly, never push you into services you don't need, and always start with what makes sense for <em>your</em> specific business.</p>
+      <p>We know that technology can be overwhelming when you're busy running a business. That's why we focus on practical solutions you can actually use, not flashy tech that looks impressive but doesn't help your bottom line. Most importantly, there are no silly questions - so ask away!</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Let's Have a Chat</h2>
+      <div class="contact-info">
+        <p>Curious about how technology could help your business grow? Book a free, no-obligation chat to discuss your needs. No technical knowledge required and absolutely no pressure to proceed.</p>
+        <!--    <p><i class="fas fa-map-marker-alt"></i> Nottingham, United Kingdom</p>-->
+        <!--    <p><i class="fas fa-envelope"></i> contact@ninthyard.co.uk</p>-->
+        <!--    <p><i class="fas fa-phone"></i> 0115-->
+      </div>
+      <a href="mailto:contact@ninthyard.co.uk" class="cta-button">Email for a Free Initial Chat</a>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <a href="#privacy-policy" class="modal-trigger" data-modal="privacy-policy">Privacy Policy</a>
+      </div>
+      <p>&copy; 2025 <a href="https://www.elliotjreed.com?utm_source=ninthyard.co.uk">Elliot J. Reed</a>. All rights reserved.</p>
+    </footer>
+
+    <div id="privacy-policy" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Privacy Policy</h2>
+        <div class="modal-body">
+          <h3>About this notice</h3>
+          <p>The purpose of this notice is to explain how I, Elliot Reed, as the owner and operator of this website amongst others, handles any personal information he collects about you when you use, enquire about or act as a supplier of services. It will also outline the rights and choices you have under the GDPR (General Data Protection Regulation) and the Data Protection Act 2018.</p>
+          <p>By using my services and websites, or by supplying services to me, you consent to the data practices described in this statement.</p>
+
+          <h3>What information do I collect about you?</h3>
+          <p>When you make an enquiry to me or use my services of, I collect personally identifiable information which may include your name, business and private contact details.</p>
+          <p>When you supply services to me I will also collect and retain personally identifiable information including, but not limited to, your contact details, biographical overview and professional services offered.</p>
+
+          <h3>How do I safeguard your personal data?</h3>
+          <p>I have put physical, electronic and procedural systems in place to keep your personal information secure. Where it is necessary to store or transfer some or all of your personal information to third party service providers, I use providers who have been verified as GDPR compliant or take steps to ensure that appropriate safeguards are in place where storage/processing takes place outside of the European Economic Area (EEA) – for example, where the service provider uses a &ldquo;cloud based&rdquo; service.</p>
+
+          <h3>How long will your information be held?</h3>
+          <p>Your information will only be held whilst you are actively involved with the services provided by me. However, you have the right to request erasure at any time (see below).</p>
+
+          <h3>Your Rights</h3>
+          <p>Under the GDPR your rights are as follows:</p>
+          <ul>
+            <li>the right to be informed;</li>
+            <li>the right of access;</li>
+            <li>the right to rectification;</li>
+            <li>the right to erasure;</li>
+            <li>the right to restrict processing;</li>
+            <li>the right to data portability;</li>
+            <li>the right to object;</li>
+            <li>the right not to be subject to automated decision-making including profiling.</li>
+          </ul>
+          <p>Please note that the above rights are not absolute, and I may be entitled to refuse requests where exceptions apply. You have the right to complain to the ICO [www.ico.org.uk] if you feel there is a problem with the way I are handling your data.</p>
+
+          <h3>How to make an enquiry or change your preferences</h3>
+          <p>If at any time, you want to verify, update, amend or delete any personal information I hold about you, please contact me.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const modalTriggers = document.querySelectorAll(".modal-trigger");
+
+        modalTriggers.forEach(function (trigger) {
+          trigger.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+
+            modal.style.display = "block";
+            document.body.classList.add("modal-open");
+          });
+        });
+
+        const closeButtons = document.querySelectorAll(".modal-close");
+        closeButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            const modal = this.closest(".modal");
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+          });
+        });
+
+        window.addEventListener("click", function (e) {
+          if (e.target.classList.contains("modal")) {
+            e.target.style.display = "none";
+            document.body.classList.remove("modal-open");
+          }
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            const openModals = document.querySelectorAll('.modal[style="display: block;"]');
+            openModals.forEach(function (modal) {
+              modal.style.display = "none";
+              document.body.classList.remove("modal-open");
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

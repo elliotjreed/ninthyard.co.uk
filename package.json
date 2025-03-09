@@ -1,49 +1,5 @@
 {
-  "name": "ninth-yard",
-  "version": "1.0.0",
-  "private": true,
-  "repository": "git@github.com:elliotjreed/ninthyard.git",
-  "author": "Elliot J. Reed <website@ninthyard.co.uk>",
-  "license": "MIT",
-  "scripts": {
-    "start": "NODE_ENV=development webpack serve --mode development --env development",
-    "build": "NODE_ENV=production webpack --mode production --env production",
-    "lint:js": "eslint 'src/**/*.js'",
-    "lint:css": "stylelint 'src/**/*.scss' --scss"
-  },
-  "dependencies": {
-    "simpledotcss": "^1.0"
-  },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^4.0",
-    "autoprefixer": "^10.4",
-    "copy-webpack-plugin": "^9.0",
-    "css-loader": "^6.5",
-    "file-loader": "^6.2",
-    "html-webpack-plugin": "^5.5",
-    "mini-css-extract-plugin": "^2.4",
-    "node-sass": "^6.0",
-    "postcss": "^8.3",
-    "postcss-loader": "^6.2",
-    "postcss-preset-env": "^6.7",
-    "prettier": "^2.4",
-    "sass-loader": "^12.3",
-    "style-loader": "^3.3",
-    "ts-loader": "^9.2",
-    "typescript": "^4.4",
-    "webpack": "^5.64",
-    "webpack-cli": "^4.9",
-    "webpack-dev-server": "^4.4",
-    "webpack-pwa-manifest": "^4.3",
-    "whatwg-fetch": "^3.6",
-    "workbox-webpack-plugin": "^6.3"
-  },
-  "browserslist": [
-    "defaults",
-    "not ie < 11",
-    "last 2 versions",
-    "> 1%",
-    "iOS 7",
-    "last 3 iOS versions"
-  ]
+    "prettier": "3.5.3"
+  }
 }
