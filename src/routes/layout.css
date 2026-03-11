@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* ─── Class-based dark mode ─────────────────────────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Design tokens ──────────────────────────────────────────────────────── */
+@theme {
+	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Fraunces', ui-serif, Georgia, serif;
+	--font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+
+	/* Brand greens */
+	--color-brand-green: oklch(0.48 0.13 145);
+	--color-brand-green-light: oklch(0.62 0.13 145);
+	--color-brand-green-pale: oklch(0.96 0.03 145);
+	--color-brand-green-dark: oklch(0.28 0.09 145);
+
+	/* Brand purples */
+	--color-brand-purple: oklch(0.44 0.18 295);
+	--color-brand-purple-light: oklch(0.66 0.18 295);
+	--color-brand-purple-pale: oklch(0.96 0.03 295);
+	--color-brand-purple-dark: oklch(0.26 0.12 295);
+
+	/* Warm neutrals */
+	--color-warm-50: oklch(0.99 0.005 90);
+	--color-warm-100: oklch(0.97 0.008 90);
+	--color-warm-900: oklch(0.17 0.008 270);
+	--color-warm-950: oklch(0.12 0.008 270);
+}
+
+/* ─── Base styles ────────────────────────────────────────────────────────── */
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		@apply bg-white text-gray-900 dark:bg-warm-950 dark:text-gray-50;
+		@apply transition-colors duration-300;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-display;
+	}
+}
+
+/* ─── View transitions ───────────────────────────────────────────────────── */
+@keyframes slide-from-right {
+	from {
+		opacity: 0;
+		transform: translateX(16px);
+	}
+}
+
+@keyframes slide-to-left {
+	to {
+		opacity: 0;
+		transform: translateX(-16px);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	::view-transition-old(root) {
+		animation: 180ms ease both slide-to-left;
+	}
+
+	::view-transition-new(root) {
+		animation: 180ms ease both slide-from-right;
+	}
+}
+
+/* ─── Prose customisation ────────────────────────────────────────────────── */
+.prose {
+	@apply prose-headings:font-display prose-a:text-brand-green dark:prose-a:text-brand-green-light;
+	@apply prose-code:rounded prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5;
+	@apply dark:prose-invert dark:prose-code:bg-gray-800;
+	@apply prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700;
+}

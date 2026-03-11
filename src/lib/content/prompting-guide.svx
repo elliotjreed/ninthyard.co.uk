@@ -1,0 +1,212 @@
+---
+title: The Beginner's Guide to AI Prompting
+description: Learn how to write prompts that get consistently great results from AI tools like ChatGPT, Claude, and Copilot.
+---
+
+# The Beginner's Guide to AI Prompting
+
+AI tools like ChatGPT, Claude, and Microsoft Copilot are only as useful as the instructions you give them. The art of writing those instructions is called **prompting** — and the gap between a mediocre prompt and a great one can mean the difference between a useless output and one that saves you hours.
+
+This guide will take you from the basics to more advanced techniques, with practical examples throughout. By the end, you'll be able to write prompts that produce consistently high-quality results.
+
+---
+
+## What is a prompt?
+
+A prompt is simply the text you type to an AI to tell it what you want. It could be a question, an instruction, a piece of text to improve, or a task to complete.
+
+The AI doesn't have memory between conversations (unless the tool specifically provides one), so every prompt needs to give it enough context to do a good job. Think of it like briefing a highly capable but completely new contractor who knows nothing about you, your business, or what you're trying to achieve.
+
+---
+
+## The CRTF framework
+
+A simple framework to remember when writing prompts is **CRTF**: Context, Role, Task, Format.
+
+### Context
+
+Tell the AI what it needs to know to do its job well. Without context, it will make assumptions — and those assumptions are often wrong.
+
+**Poor prompt:**
+> Write an email about our new product.
+
+**Better prompt:**
+> We're a Nottingham-based independent coffee roaster. We've just launched a new single-origin Ethiopian blend. Our customers are specialty coffee enthusiasts who buy online. Write an email announcing this new product.
+
+### Role
+
+Assigning a role to the AI changes the perspective and style it writes from. This dramatically improves the quality for specialist tasks.
+
+**Without a role:**
+> Give me feedback on this job description.
+
+**With a role:**
+> You are an experienced HR manager who specialises in writing inclusive, compelling job descriptions. Give me feedback on this job description, focusing on language that might deter candidates from underrepresented groups.
+
+### Task
+
+Be specific about what you want the AI to produce. Vague tasks produce vague results.
+
+**Vague task:**
+> Help me with my marketing.
+
+**Specific task:**
+> Write three LinkedIn post drafts promoting our upcoming free webinar on AI for small businesses. Each post should have a different tone: professional, casual, and educational. Include a call to action and relevant hashtags.
+
+### Format
+
+Tell the AI exactly how you want the output structured. If you want bullet points, say so. If you want a table, ask for a table. If you want it in 200 words, specify that.
+
+**Without format guidance:**
+> Summarise our customer feedback.
+
+**With format guidance:**
+> Summarise our customer feedback as a structured report with the following sections: Key Themes (bullet points), Top 3 Positives, Top 3 Areas for Improvement, and Recommended Actions. Keep the total length under 300 words.
+
+---
+
+## Intermediate techniques
+
+Once you're comfortable with CRTF, these techniques will take your prompting to the next level.
+
+### Few-shot examples
+
+Providing examples of what you want the output to look like dramatically improves consistency. This is called "few-shot" prompting.
+
+**Example:**
+> Write a product description for our new leather notebook.
+>
+> Here are two examples of our existing product descriptions to match the tone and style:
+>
+> Example 1: "The Architect's Pad. 192 pages of thick, fountain-pen-friendly paper wrapped in vegetable-tanned Italian leather. Designed for people who think with their hands."
+>
+> Example 2: "The Daily Driver. No-nonsense. No bleed-through. Just a reliably excellent notebook for lists, ideas, and everything in between."
+
+### Chain of thought
+
+For complex tasks, ask the AI to show its reasoning before giving you the final answer. This improves accuracy significantly.
+
+**Example:**
+> A customer has emailed to complain that their order arrived damaged. Before drafting a response, think through: what the customer is likely feeling, what outcome they probably want, what we can realistically offer, and what would restore their trust. Then write the response.
+
+### Iterative refinement
+
+Don't expect perfection on the first attempt. Use follow-up prompts to refine:
+
+- "Make this more formal."
+- "Shorten it to 100 words."
+- "Make the third bullet point more specific."
+- "Rewrite the opening — it's too salesy."
+- "Now produce three alternative versions of the headline."
+
+### Breaking down complex tasks
+
+For large tasks, break them into steps. Instead of asking for a complete 2,000-word blog post in one go, prompt it section by section:
+
+1. "Give me 5 potential titles for a blog post about X."
+2. "Using title 3, write the introduction (150 words)."
+3. "Write the first main section: [section heading]."
+4. And so on.
+
+This keeps the AI focused and produces higher-quality output at each step.
+
+---
+
+## Advanced techniques
+
+### Structured output
+
+If you're using AI output in a system, document, or spreadsheet, ask for it in a specific structured format:
+
+> Extract the key information from the following contract and return it as a JSON object with these fields: party_names (array), start_date, end_date, payment_terms, and termination_notice_period.
+
+### Persona consistency
+
+If you're creating content for a brand, write a brief "brand persona" prompt and save it to reuse. Before any content task, paste it in:
+
+> You are writing for Ninthyard, an AI consultancy based in Nottingham. Our tone is: warm, direct, jargon-free, and occasionally dry. We never use buzzwords like "leverage", "synergy", or "cutting-edge". We write in British English. We believe AI should serve people, not the other way around.
+
+### Using constraints creatively
+
+Constraints paradoxically improve AI output. Adding specific limitations forces more focused, creative responses:
+
+- "In exactly 50 words."
+- "Without using the word 'important'."
+- "As a numbered list of exactly 7 items."
+- "In the style of a 1950s BBC announcer."
+- "Suitable for a 14-year-old to understand."
+
+---
+
+## Common mistakes to avoid
+
+### Being too vague
+
+The AI cannot read your mind. If you want a specific outcome, describe it explicitly. Every assumption the AI has to make is a risk that it assumes wrong.
+
+### Asking for too much at once
+
+Trying to do everything in one prompt often produces worse results than breaking it into focused steps. If your prompt is more than a paragraph long, consider splitting it.
+
+### Not providing enough context
+
+Context isn't just background information — it's also your constraints, your audience, your goals, and what "good" looks like. The more relevant context you provide, the better the output.
+
+### Accepting the first response
+
+AI tools are designed to produce plausible, fluent text — not necessarily perfect text. Always review outputs critically. The first draft is usually a starting point, not a finished product.
+
+### Using it for things it's bad at
+
+AI language models are not calculators, not search engines, and not legal advisors. They are excellent at writing, summarising, brainstorming, restructuring, and translating ideas — but they make things up (this is called "hallucination"), they don't know current events unless given access to search tools, and they can be subtly wrong in ways that look convincing.
+
+---
+
+## Practical templates for business use
+
+### Template: Customer communication
+```
+You are a customer service professional for [COMPANY NAME], a [DESCRIBE BUSINESS].
+Our tone is [professional/friendly/formal].
+
+[TASK: e.g. "Write a response to the following customer complaint" or "Draft a follow-up email to a customer who hasn't responded in 5 days"]
+
+[PASTE RELEVANT CONTENT]
+
+Keep the response under [WORD COUNT] words.
+```
+
+### Template: Internal documents
+```
+You are a [ROLE, e.g. "project manager", "HR professional"].
+
+Create a [DOCUMENT TYPE, e.g. "meeting agenda", "job description", "project brief"] for [CONTEXT].
+
+Include the following sections: [LIST SECTIONS]
+
+Audience: [WHO WILL READ THIS]
+Tone: [DESCRIBE TONE]
+Maximum length: [WORD COUNT]
+```
+
+### Template: Content creation
+```
+You are a content writer for [BRAND/COMPANY].
+Brand voice: [DESCRIBE — e.g. "conversational, expert, warm, direct"]
+Target audience: [WHO]
+Platform: [WHERE THIS WILL BE PUBLISHED]
+
+Write [CONTENT TYPE, e.g. "a LinkedIn post", "a blog introduction", "three email subject line variants"] about [TOPIC].
+
+Key message to convey: [ONE SENTENCE]
+Call to action: [WHAT SHOULD THE READER DO]
+Word count: [APPROXIMATE LENGTH]
+```
+
+---
+
+## Next steps
+
+The best way to improve at prompting is to practise. Use our [Prompt Library](/prompts) to explore ready-made prompts for common business tasks — each one is a practical example you can customise for your own needs.
+
+If you'd like hands-on training for your team, [get in touch](/contact) — we run workshops specifically designed for SME teams getting started with AI tools.

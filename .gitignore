@@ -18,4 +18,10 @@ Thumbs.db
 !.env.example
 !.env.test
 
-.dev.vars
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+# Playwright
+test-results
+# Cloudflare Types
+/worker-configuration.d.ts
